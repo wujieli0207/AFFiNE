@@ -94,17 +94,15 @@ export const AfterSignInSendEmail = ({
 
       <div className={style.resendWrapper}>
         {resendCountDown <= 0 ? (
-          <>
-            <Button
-              style={!verifyToken ? { cursor: 'not-allowed' } : {}}
-              disabled={!verifyToken || isSending}
-              type="plain"
-              size="large"
-              onClick={onResendClick}
-            >
-              {t['com.affine.auth.sign.auth.code.resend.hint']()}
-            </Button>
-          </>
+          <Button
+            style={!verifyToken ? { cursor: 'not-allowed' } : {}}
+            disabled={!verifyToken || isSending}
+            type="plain"
+            size="large"
+            onClick={onResendClick}
+          >
+            {t['com.affine.auth.sign.auth.code.resend.hint']()}
+          </Button>
         ) : (
           <div className={style.sentRow}>
             <div className={style.sentMessage}>
