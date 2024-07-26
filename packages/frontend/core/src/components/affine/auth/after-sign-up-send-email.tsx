@@ -15,7 +15,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { AuthService } from '../../../modules/cloud';
 import type { AuthPanelProps } from './index';
 import * as style from './style.css';
-import {  useCaptcha } from './use-captcha';
+import { useCaptcha } from './use-captcha';
 
 export const AfterSignUpSendEmail: FC<AuthPanelProps> = ({
   setAuthState,
@@ -86,17 +86,15 @@ export const AfterSignUpSendEmail: FC<AuthPanelProps> = ({
 
       <div className={style.resendWrapper}>
         {resendCountDown <= 0 ? (
-          <>
-            <Button
-              style={!verifyToken ? { cursor: 'not-allowed' } : {}}
-              disabled={!verifyToken || isSending}
-              type="plain"
-              size="large"
-              onClick={onResendClick}
-            >
-              {t['com.affine.auth.sign.auth.code.resend.hint']()}
-            </Button>
-          </>
+          <Button
+            style={!verifyToken ? { cursor: 'not-allowed' } : {}}
+            disabled={!verifyToken || isSending}
+            type="plain"
+            size="large"
+            onClick={onResendClick}
+          >
+            {t['com.affine.auth.sign.auth.code.resend.hint']()}
+          </Button>
         ) : (
           <div className={style.sentRow}>
             <div className={style.sentMessage}>
