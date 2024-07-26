@@ -14,7 +14,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import type { AuthPanelProps } from './index';
 import * as style from './style.css';
-import { Captcha, useCaptcha } from './use-captcha';
+import { useCaptcha } from './use-captcha';
 
 export const AfterSignInSendEmail = ({
   setAuthState,
@@ -95,7 +95,6 @@ export const AfterSignInSendEmail = ({
       <div className={style.resendWrapper}>
         {resendCountDown <= 0 ? (
           <>
-            <Captcha />
             <Button
               style={!verifyToken ? { cursor: 'not-allowed' } : {}}
               disabled={!verifyToken || isSending}

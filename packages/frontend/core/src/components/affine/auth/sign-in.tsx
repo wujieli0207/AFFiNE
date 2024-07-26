@@ -17,7 +17,7 @@ import { emailRegex } from '../../../utils/email-regex';
 import type { AuthPanelProps } from './index';
 import { OAuth } from './oauth';
 import * as style from './style.css';
-import { Captcha, useCaptcha } from './use-captcha';
+import { useCaptcha } from './use-captcha';
 
 function validateEmail(email: string) {
   return emailRegex.test(email);
@@ -144,8 +144,6 @@ export const SignIn: FC<AuthPanelProps> = ({
           }
           onEnter={onContinue}
         />
-
-        {verifyToken ? null : <Captcha />}
 
         {verifyToken ? (
           <Button
