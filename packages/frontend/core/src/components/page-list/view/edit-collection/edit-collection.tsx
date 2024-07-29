@@ -49,6 +49,10 @@ export const EditCollectionModal = ({
     onOpenChange(false);
   }, [onOpenChange]);
 
+  if (!(open && init)) {
+    return null;
+  }
+
   return (
     <Modal
       open={open}
@@ -59,16 +63,14 @@ export const EditCollectionModal = ({
       contentOptions={contentOptions}
       persistent
     >
-      {open && init ? (
-        <EditCollection
-          title={title}
-          onConfirmText={t['com.affine.editCollection.save']()}
-          init={init}
-          mode={mode}
-          onCancel={onCancel}
-          onConfirm={onConfirmOnCollection}
-        />
-      ) : null}
+      <EditCollection
+        title={title}
+        onConfirmText={t['com.affine.editCollection.save']()}
+        init={init}
+        mode={mode}
+        onCancel={onCancel}
+        onConfirm={onConfirmOnCollection}
+      />
     </Modal>
   );
 };
@@ -121,7 +123,6 @@ export const EditCollection = ({
           {t['com.affine.editCollection.button.cancel']()}
         </Button>
         <Button
-          className={styles.confirmButton}
           size="large"
           data-testid="save-collection"
           type="primary"
@@ -169,7 +170,6 @@ export const EditCollection = ({
     >
       {mode === 'page' ? (
         <SelectPage
-          allPageListConfig={config}
           init={value.allowList}
           onChange={onIdsChange}
           header={switchMode}

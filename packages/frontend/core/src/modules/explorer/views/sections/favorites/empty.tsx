@@ -39,10 +39,10 @@ export const RootEmpty = ({
         <FolderIcon className={styles.icon} />
       </div>
       <div
-        data-testid="slider-bar-organize-empty-message"
+        data-testid="slider-bar-favorites-empty-message"
         className={styles.message}
       >
-        {t['com.affine.rootAppSidebar.organize.empty']()}
+        {t['com.affine.rootAppSidebar.favorites.empty']()}
       </div>
       {dropEffect && draggedOverDraggable && (
         <DropEffect
