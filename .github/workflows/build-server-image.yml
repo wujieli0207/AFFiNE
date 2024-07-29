@@ -43,7 +43,7 @@ jobs:
   build-web-selfhost:
     name: Build @affine/web selfhost
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.flavor || 'canary' }}
+    environment: ${{ github.event.inputs.flavor || 'stable' }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Version
@@ -54,7 +54,7 @@ jobs:
       - name: Build Core
         run: yarn nx build @affine/web --skip-nx-cache --verbose
         env:
-          BUILD_TYPE: ${{ github.event.inputs.flavor || 'canary' }}
+          BUILD_TYPE: ${{ github.event.inputs.flavor || 'stable' }}
           PUBLIC_PATH: '/'
           SELF_HOSTED: true
       - name: Download selfhost fonts
@@ -69,7 +69,7 @@ jobs:
   build-admin-selfhost:
     name: Build @affine/admin selfhost
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.flavor || 'canary' }}
+    environment: ${{ github.event.inputs.flavor || 'stable' }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Version
@@ -80,7 +80,7 @@ jobs:
       - name: Build Core
         run: yarn nx build @affine/admin --skip-nx-cache
         env:
-          BUILD_TYPE: ${{ github.event.inputs.flavor || 'canary' }}
+          BUILD_TYPE: ${{ github.event.inputs.flavor || 'stable' }}
           PUBLIC_PATH: '/admin/'
           SELF_HOSTED: true
       - name: Upload admin artifact

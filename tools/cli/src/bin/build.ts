@@ -7,29 +7,28 @@ import { createWebpackConfig } from '../webpack/webpack.config.js';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 // const buildType =
-//   process.env.BUILD_TYPE_OVERRIDE || process.env.BUILD_TYPE || 'canary';
-const buildType = 'canary';
+//   process.env.BUILD_TYPE_OVERRIDE || process.env.BUILD_TYPE || 'stable';
 
 if (process.env.BUILD_TYPE_OVERRIDE) {
   process.env.BUILD_TYPE = process.env.BUILD_TYPE_OVERRIDE;
 }
 
-const getChannel = () => {
-  switch (buildType) {
-    case 'canary':
-    case 'beta':
-    case 'stable':
-    case 'internal':
-      return buildType;
-    case '':
-      throw new Error('BUILD_TYPE is not set');
-    default: {
-      throw new Error(
-        `BUILD_TYPE must be one of canary, beta, stable, internal, received [${buildType}]`
-      );
-    }
-  }
-};
+// const getChannel = () => {
+//   switch (buildType) {
+//     case 'canary':
+//     case 'beta':
+//     case 'stable':
+//     case 'internal':
+//       return buildType;
+//     case '':
+//       throw new Error('BUILD_TYPE is not set');
+//     default: {
+//       throw new Error(
+//         `BUILD_TYPE must be one of canary, beta, stable, internal, received [${buildType}]`
+//       );
+//     }
+//   }
+// };
 
 let entry: string | undefined;
 
@@ -44,7 +43,7 @@ if (DISTRIBUTION === 'desktop') {
 const flags = {
   distribution: DISTRIBUTION as BuildFlags['distribution'],
   mode: 'production',
-  channel: getChannel(),
+  channel: 'stable',
   coverage: process.env.COVERAGE === 'true',
   entry,
 } satisfies BuildFlags;
