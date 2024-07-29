@@ -111,7 +111,6 @@ jobs:
         with:
           target: ${{ matrix.spec.target }}
           package: '@affine/native'
-          nx_token: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       - uses: actions/download-artifact@v4
         with:
           name: web
