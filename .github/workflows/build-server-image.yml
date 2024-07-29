@@ -193,7 +193,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: https://npm.pkg.github.com
-          scope: '@toeverything'
+          scope: '@wujieli0207'
 
       - name: Download selfhost web artifact
         uses: actions/download-artifact@v4
@@ -229,4 +229,4 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           provenance: true
           file: .github/deployment/node/Dockerfile
-          tags: ghcr.io/toeverything/affine-graphql:${{env.RELEASE_FLAVOR}}-${{ env.GIT_SHORT_HASH }},ghcr.io/toeverything/affine-graphql:${{env.RELEASE_FLAVOR}}
+          tags: ghcr.io/wujieli0207/affine-graphql:${{env.RELEASE_FLAVOR}}-${{ env.GIT_SHORT_HASH }},ghcr.io/wujieli0207/affine-graphql:${{env.RELEASE_FLAVOR}}
