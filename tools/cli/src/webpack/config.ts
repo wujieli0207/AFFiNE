@@ -341,9 +341,6 @@ export const createConfiguration: (
         ),
         'process.env.SENTRY_DSN': JSON.stringify(process.env.SENTRY_DSN),
         'process.env.BUILD_TYPE': JSON.stringify(process.env.BUILD_TYPE),
-        'process.env.MIXPANEL_TOKEN': JSON.stringify(
-          process.env.MIXPANEL_TOKEN
-        ),
         'process.env.DEBUG_JOTAI': JSON.stringify(process.env.DEBUG_JOTAI),
         runtimeConfig: JSON.stringify(runtimeConfig),
       }),

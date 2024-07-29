@@ -59,7 +59,6 @@ jobs:
           SENTRY_RELEASE: ${{ steps.version.outputs.APP_VERSION }}
           RELEASE_VERSION: ${{ steps.version.outputs.APP_VERSION }}
           SKIP_NX_CACHE: 'true'
-          MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
 
       - name: Upload web artifact
         uses: actions/upload-artifact@v4
@@ -94,7 +93,6 @@ jobs:
       SENTRY_PROJECT: 'affine'
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Version
@@ -183,7 +181,6 @@ jobs:
       SENTRY_PROJECT: 'affine'
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Version

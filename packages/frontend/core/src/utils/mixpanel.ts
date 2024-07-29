@@ -1,17 +1,14 @@
 import { DebugLogger } from '@affine/debug';
 import type { OverridedMixpanel } from 'mixpanel-browser';
-import mixpanelBrowser from 'mixpanel-browser';
 
 import type { MixpanelEvents } from '../mixpanel';
 
 const logger = new DebugLogger('affine:mixpanel');
 
-export const mixpanel = process.env.MIXPANEL_TOKEN
-  ? mixpanelBrowser
-  : new Proxy(
-      function () {} as unknown as OverridedMixpanel,
-      createProxyHandler()
-    );
+export const mixpanel = new Proxy(
+  function () {} as unknown as OverridedMixpanel,
+  createProxyHandler()
+);
 
 function createProxyHandler(property?: string | symbol) {
   const handler = {
