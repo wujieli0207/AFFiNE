@@ -52,7 +52,7 @@ jobs:
       - name: Setup Node.js
         uses: ./.github/actions/setup-node
       - name: Build Core
-        run: yarn nx build @affine/web --skip-nx-cache
+        run: yarn nx build @affine/web --skip-nx-cache --verbose
         env:
           BUILD_TYPE: ${{ github.event.inputs.flavor || 'canary' }}
           PUBLIC_PATH: '/'
